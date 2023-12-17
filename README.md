@@ -26,7 +26,7 @@ Before you begin, ensure you have the following installed:
 1.  Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/driver-monitoring-system.git
+    git clone https://github.com/om205/Driver-Monitoring-system.git
     ```
 
 1.  Navigate to the project directory:
@@ -63,6 +63,7 @@ The project follows a modular structure for better organization:
 
 - **POST** `/event`: Accepts driving events from the IoT device.
 - **GET** `/alert/{alert_id}`: Retrieves an alert by its ID.
+- **GET** `/alert`: Retrieves all the alerts from database.
 
 ### Rule Evaluation
 
