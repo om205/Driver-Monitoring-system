@@ -15,7 +15,7 @@ app.use("/alert", alertRoutes);
 
 // Initialize the database
 database.initialize(() => {
-  cron.schedule("*/1 * * * *", async () => {
+  cron.schedule("*/5 * * * *", async () => {
     console.log("Running Rule Evaluation...");
     await ruleEngineService.evaluateRule();
   });

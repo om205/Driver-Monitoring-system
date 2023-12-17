@@ -4,17 +4,16 @@ const { generateAlert, isPast5Minutes } = require("../utils/helper");
 
 async function evaluateRule() {
   try {
-    console.log("$Cron job started");
+    // console.log("$Cron job started");
     const alertThresholds = await database.getAlertThresholds();
     // Get unsafe events from the last 5 minutes
     const unsafeEvents = await database.getRecentUnsafeEvents(
       CONSTANTS.EVENT_INTERVAL
     );
-    console.log(`$Last 5 minute Events: `, unsafeEvents);
+    // console.log(`$Last 5 minute Events: `, unsafeEvents);
 
     unsafeEvents.forEach((event) => {
       const vehicleId = event.vehicle_id;
-      console.log(alertThresholds[event.location_type], event.event_count);
       if (alertThresholds[event.location_type] <= event.event_count) {
         const lastAlertTimestamp = getLastAlertTimestamp(vehicleId);
 
@@ -33,7 +32,7 @@ async function evaluateRule() {
         }
       }
     });
-    console.log("$Cron job ended");
+    // console.log("$Cron job ended");
   } catch (error) {
     console.error("Error evaluating rule:", error.message);
   }

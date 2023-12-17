@@ -1,11 +1,8 @@
-// alertController.js
-
 const database = require("../database");
 
 async function getAlertById(req, res) {
   const alertId = req.params.alert_id;
   try {
-    // Retrieve the alert by ID from the database
     const alert = await database.getAlertById(alertId);
     res.json(alert);
   } catch (error) {
@@ -16,7 +13,6 @@ async function getAlertById(req, res) {
 
 async function getAllAlerts(req, res) {
   try {
-    // Retrieve all alerts from the database
     const alerts = await database.getAllAlerts();
     res.json(alerts);
   } catch (error) {

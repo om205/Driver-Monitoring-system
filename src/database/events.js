@@ -14,7 +14,7 @@ async function addEvent(event) {
         event.location_type,
       ]
     );
-    console.log("Event added to the database:", event);
+    // console.log("Event added to the database:", event);
   } catch (error) {
     console.error("Error adding event to the database:", error.message);
   }
@@ -25,7 +25,7 @@ async function getRecentUnsafeEvents(minutes) {
     const endTime = new Date();
     const startTime = new Date(endTime - minutes * 60 * 1000);
 
-    console.log(`fetching events from ${startTime} to ${endTime}`);
+    // console.log(`fetching events from ${startTime} to ${endTime}`);
 
     const query = `
         SELECT
